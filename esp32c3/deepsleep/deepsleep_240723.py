@@ -151,3 +151,7 @@ def Get_wakeup_pin():
 def Get_wakeup_cause():
     ''' return 0x8 if deepsleep ended by timer interrupt or 0x4 if ended by gpio interrupt --> Table 9-4. '''
     return Register(RTC_CNTL_SLP_WAKEUP_CAUSE, 0, 17)
+
+def Brownout_reset(val=0):
+    ''' enable or diable brownout reset '''
+    Register(RTC_CNTL_BROWN_OUT, 30, 1, val)

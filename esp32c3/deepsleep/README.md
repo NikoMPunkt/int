@@ -19,13 +19,13 @@ This module activates the RTC GPIO (GPIO 0 to 5) as wakeup source for deepsleep 
 |-|-|
 |pin_nr|GPIO number (0,1,2,3,4,5)|
 |mode=0| disable wakeup by RTC GPIO|
-|mode=1| wake up the chip upon the rising edge|
-|mode=2| wake up the chip upon the failing edge|
-|mode=3| wake up the chip upon the rising edge or the failing edge|
-|mode=4| wake up the chip upon low level|
-|mode=5| wake up the chip upon high level|
-|pull=deep.PULL_UP|Pull-up enable of the pin during sleep mode|
-|pull=deep.PULL_DOWN|Pull-down enable of pin during sleep mode|
+|mode=1| wake up upon rising edge|
+|mode=2| wake up chip upon falling edge|
+|mode=3| wake up chip upon rising or falling edge|
+|mode=4| wake up chip upon low level|
+|mode=5| wake up chip upon high level|
+|pull=deep.PULL_UP|Pull-up enable of pin during sleep mode|
+|pull=deep.PULL_DOWN|Pull-down enable of during sleep mode|
 |pull=None|Disable Pull-down and Pull-up|
 
 ---

@@ -13,7 +13,7 @@ This module activates the RTC GPIO (GPIO 0 to 5) as wakeup source for deepsleep 
 ## Methods
 **Set RTC GPIO pin as wakeup source:**
 ```python
-    deep.Set_wakeup_pin(pin_nr, **mode=wakeup type, **pull=pull resistances)
+    deep.Set_wakeup_pin(pin_nr, **mode=wakeup_type, **pull=pull resistances)
  ```
 |Parameter|Description|
 |-|-|

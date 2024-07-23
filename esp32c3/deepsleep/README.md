@@ -56,5 +56,25 @@ Return the reset cause
 ```
 return the GPIO pin number which caused the wakeup event or None when timer caused the evenet
 
+**Get register value:**
+```python
+    value = deep.Register(address, bit_pos, bit_len)
+```
+return the value of the 32 bit register *address* starting at *bit_pos* with *bit_len*
+
+**Set register value:**
+```python
+     deep.Register(address, bit_pos, bit_len, value)
+```
+set the *value* within the 32 bit register *address* starting at *bit_pos* with *bit_len*
+
+
+**Print register content:**
+```python
+     deep.Print_register(address)
+```
+Print a register as binary with seperators
+
+
 
 

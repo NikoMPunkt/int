@@ -11,7 +11,7 @@ This module activates the RTC GPIO (GPIO 0 to 5) as wakeup source for deepsleep 
 ```
 
 ## Methods
-**Restore a rtc buffer:**
+**Set RTC GPIO pin as wakeup source:**
 ```python
     deep.Set_wakeup_pin(pin_nr, **mode=wakeup type, **pull=pull resistances)
  ```
@@ -28,63 +28,33 @@ This module activates the RTC GPIO (GPIO 0 to 5) as wakeup source for deepsleep 
 |pull=deep.PULL_DOWN|Pull-down enable of pin during sleep mode|
 |pull=None|Disable Pull-down and Pull-up|
 
-
-
-
-
 ---
-**Create a new rtc buffer:**
+**Set CPU into deepsleep:**
 ```python
-    rtcBuffer.Create_new_buffer(data_bit_len=8, header_byte_len=0)
+    deep.Deepsleep(ds_time)
 ```
+ds_time into seconds!
 
-**Set value at current pointer:**
+**Get reset cause:**
 ```python
-    rtcBuffer.Set_value(value, inc=True)
+    reset_cause = deep.Get_reset_cause()
 ```
-Set pointer to given value and increase pointer when inc=True
+Return the reset cause 
 
-**Get value from current or arbitrary pointer:**
+**Get wakeup cause:**
 ```python
-    rtcBuffer.Get_value(ptr=None)
+    wakeup_cause = deep.Get_wakeup_cause()
 ```
-Get last written value (at prevoius pointer position) when ptr is None
-
-**Set header:**
-```python
-    rtcBuffer.Set_header(value)
-```
-Value can be *integer* or *bytearray*
-
-**Get header:**
-```python
-    header = rtcBuffer.Get_header(typ=None)
-```
-*header* is bytearry if type is None and *integer* if type is 'int' 
-
-**Set pointer:**
-```python
-    rtcBuffer.Set_ptr(ptr=None)
-```
-Set pointer and overflow to 0 if ptr is 0 else to the given value 
-
-**Get pointer:**
-```python
-    pointer,overflow =  rtcBuffer.Get_ptr()
-Returns a tuple of pointer and overflow flag
-```
-
----
-
-## Attributes
-|Parameter|Description|
+|wakeup_cause|Description|
 |-|-|
-|header_byte_len|number of *bytes* for storing the header|
-|ptr|Pointer to the **NEXT FREE** element|
-|ptr_overflow|Ring buffer is full; pointer starts again from beginning|
-|ptr_bit_len|number of *bits*  for storing the pointer|
-|ptr_start_bit|bit position where the pointer value is stored|
-|ptr_max|*maximum* number of storable values|
-|data_bit_len|number *bits* for storing the pointer|
-|data_start_bit|bit position where the data are stored|
+|0x04|wakeup by GPIO event|
+|0x08|wakeup by timer|
+
+**Get pin wakeup:**
+```python
+    wakeup_pin = deep.Get_wakeup_pin()
+```
+return the GPIO pin number which caused the wakeup event or None when timer caused the evenet
+
+
 

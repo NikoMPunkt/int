@@ -33,7 +33,7 @@ This module activates the RTC GPIO (GPIO 0 to 5) as wakeup source for deepsleep 
 ```python
     deep.Deepsleep(ds_time)
 ```
-ds_time into seconds!
+ds_time in seconds!
 
 **Get reset cause:**
 ```python

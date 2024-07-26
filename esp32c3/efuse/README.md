@@ -53,6 +53,11 @@ block_nr=0~10
     efuse.Set_PGM_CHECK()
 ```
 
+**Set the PGM_DATA registers to 0**
+```python
+    efuse.Clr_PGM_DATA()
+```
+
 **print content of REPORT REGISTERS to indicate an error**
 ```python
     efuse.Print_Report()
